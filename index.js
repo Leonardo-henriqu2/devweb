@@ -20,11 +20,10 @@ server.use('/funcionario', funcionarioRoutes);
 
 
 //Conexão com MongoDB Atlas
-const DB_USER = 'bernardesleonardosouza';
-const DB_PASSWORD = encodeURIComponent('L21y74dGaO7gnROp');
+
 
 //Conexão com MongoDB Atlas
-mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.mapxb30.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
+mongoose.connect("mongodb+srv://bernardesleonardosouza:L21y74dGaO7gnROp@cluster0.mapxb30.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(()=>{
     console.log('Conectado ao MongoDB!');
 })
@@ -33,5 +32,7 @@ mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.mapxb30.mongo
 })
 
 //Porta do servidor
-server.listen(3000);
+const PORT = process.env.PORT
+
+server.listen(PORT);
 
