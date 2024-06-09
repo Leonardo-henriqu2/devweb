@@ -32,7 +32,7 @@ mongoose.connect("mongodb+srv://bernardesleonardosouza:L21y74dGaO7gnROp@cluster0
 })
 
 //Porta do servidor
-const PORT = process.env.PORT || 4000;
 
-server.listen(PORT);
+
+server.listen(3000);
 
