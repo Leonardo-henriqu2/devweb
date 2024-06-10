@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require ('mongoose');
 const server = express();
+require('dotenv').config();
+
 
 
 const funcionarioRoutes = require('./routes/funcionarioRoutes');
@@ -23,7 +25,7 @@ server.use('/funcionario', funcionarioRoutes);
 
 
 //Conexão com MongoDB Atlas
-mongoose.connect("mongodb+srv://bernardesleonardosouza:L21y74dGaO7gnROp@cluster0.mapxb30.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect(process.env.MONGODB_CONNECT_URI)
 .then(()=>{
     console.log('Conectado ao MongoDB!');
 })
@@ -32,7 +34,7 @@ mongoose.connect("mongodb+srv://bernardesleonardosouza:L21y74dGaO7gnROp@cluster0
 })
 
 //Porta do servidor
+const port = process.env.PORT
 
-
-server.listen(3000);
+server.listen(port);
 
